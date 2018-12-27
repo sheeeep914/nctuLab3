@@ -17,7 +17,16 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 ## Execution
 
 > TODO:
-> * How to run your program?
+> * How to run your program?  
+   1. 打開終端機，用ssh登入我的container  
+   2. cd到 /root/Route_Configuration/src/ 這個資料夾  
+      `cd /root/Route_Configuration/src/`  
+   3. 開兩個terminal頁面 
+   4. 第一個頁面運行topo.py  
+      `mn --custom topo.py --topo topo --link tc --controller remote`  
+   5. 第二個頁面第一次運行SimpleController.py  
+      `ryu-manager SimpleController.py –observe-links`  
+   6. 在第一個頁面下iperf   
 > * What is the meaning of the executing command (both Mininet and Ryu controller)?
 > * Show the screenshot of using iPerf command in Mininet (both `SimpleController.py` and `controller.py`)
 
@@ -30,9 +39,19 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 > * Describe how you finish this work in detail
 
 1. Environment Setup
-
+   1) 加入GitHub Classroom  
+   2) 打開終端機，用ssh登入我的container
+      ```
+      ssh -p 16328 root@140.113.195.69
+      Password: cn2018
+      ```
+   3) 把lab3的資料clone下來  
+      `git clone https://github.com/nctucn/lab3-sheeeep914.git Route_Configuration`  
+   4) 把Mininet開起來，測試用  
+      `sudo mn`  
+      
 2. Example of Ryu SDN
-
+   1) 登入container 
 3. Mininet Topology
 
 4. Ryu Controller
@@ -93,7 +112,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 > TODO:
 > * Please replace "`YOUR_NAME`" and "`YOUR_GITHUB_LINK`" into yours
 
-* [YOUR_NAME](YOUR_GITHUB_LINK)
+* [楊郁欣](https://github.com/sheeeep914)
 * [David Lu](https://github.com/yungshenglu)
 
 ---
