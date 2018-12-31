@@ -50,10 +50,33 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
    4) 把Mininet開起來，測試用  
       `sudo mn`  
       
-2. Example of Ryu SDN
-   1) 登入container 
-3. Mininet Topology
-
+2. Example of Ryu SDN  
+   1) 登入container，進到src資料夾，讓SimpleTopo.py跑起來(by Mininet)  
+   ```
+   cd /root/Route_Configuration/src/  
+   mn --custom SimpleTopo.py --topo topo --link tc --controller remote  
+   ```
+   2) 再開另一個terminal，進到src資料夾，讓SimpleController.py跑起來  
+   ```
+   cd /root/Route_Configuration/src/  
+   ryu-manager SimpleController.py --observe-links  
+   ```
+   3) 這樣就等於跑起來了 可以在第一個terminal裡輸入 h1 ping h2 來測試連線是否建立成功  
+3. Mininet Topology  
+   1) 先複製一份SimpleTolo.py 並命名為topo.py 一樣放在src資料夾裡面  
+   ```
+   #確定路徑是在/root/Route_Configuration/src/  
+   cp SimpleTopo.py topo.py
+   ```
+   2) 將s1,s2,s3的bandwidth,delay,loss都加進topo.py裡  
+   3) 先把topo.py運行起來(by Mininet)  
+   `mn --custom topo.py --topo topo --link tc --controller remote`  
+   4) 再開另一個terminal，進到src資料夾，讓SimpleController.py跑起來  
+   ```
+   cd /root/Route_Configuration/src/  
+   ryu-manager SimpleController.py --observe-links  
+   ```
+   
 4. Ryu Controller
 
 5. Measurement
