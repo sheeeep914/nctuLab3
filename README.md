@@ -70,7 +70,9 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
    ```
    2) 將s1,s2,s3的bandwidth,delay,loss都加進topo.py裡  
    3) 先把topo.py運行起來(by Mininet)  
-   `mn --custom topo.py --topo topo --link tc --controller remote`  
+   ```
+   mn --custom topo.py --topo topo --link tc --controller remote
+   ```
    4) 再開另一個terminal，進到src資料夾，讓SimpleController.py跑起來  
    ```
    cd /root/Route_Configuration/src/  
