@@ -25,14 +25,14 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
    4. 第一個頁面運行topo.py  
       `mn --custom topo.py --topo topo --link tc --controller remote`  
    5. 第二個頁面運行SimpleController.py  
-      `ryu-manager SimpleController.py –observe-links`  
+      `ryu-manager SimpleController.py –-observe-links`  
    6. 在第一個頁面下iperf指令量測bandwidth(詳細操作方式可參考Description的第五點Measurement)  
       ```
       h1 iperf -s -u -i 1 –p 5566 > ./out/result1 &  
       h2 iperf -c 10.0.0.1 -u –i 1 –p 5566  
       ```
    7. 關閉第二個頁面，在重啟一個新的terminal，運行controller.py(在運行之前要記得先清掉之前留下的紀錄`mn -c`) 
-      `ryu-manager controller.py –observe-links`  
+      `ryu-manager controller.py –-observe-links`  
    8. 在第一個頁面下iperf指令量測bandwidth(詳細操作方式可參考Description的第五點Measurement)  
       ```
       h1 iperf -s -u -i 1 –p 5566 > ./out/result2 &  
@@ -52,8 +52,10 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 |10.0.0.1|ip of server|   
    
    2. Ryu controller指令 
-   ????????
-   ????
+   
+|command|meaning|  
+|---|---|  
+|--observe-links|用於指明topo發現|  
    
    
    
@@ -168,7 +170,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
     
     
 
-5. What is the meaning of “datapath” in `controller.py`?
+5. What is the meaning of “datapath” in `controller.py`?  
    datapath的意義是要讓封包知道自己該走哪一條路徑。  
    
 6. Why need to set "`ip_proto=17`" in the flow entry?  
