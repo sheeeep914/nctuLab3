@@ -52,11 +52,14 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 |10.0.0.1|ip of server|   
    
    2. Ryu controller指令 
+   ????????
+   ????
    
    
    
 > * Show the screenshot of using iPerf command in Mininet (both `SimpleController.py` and `controller.py`)
-   
+   ![SimpleController.py](result1.png)  
+   ![controller.py](result2.png)  
 
 ---
 ## Description
@@ -149,23 +152,34 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 > * Answer the following questions
 
 1. Describe the difference between packet-in and packet-out in detail.
+   1) packet-in: OpenFlow 交換器會接受來自于 controller 的指令，並對於接收到的封包進行轉送到 Controller 的動作。  
+   2) packet-out: OpenFlow 交換器會接受來自于 controller 的指令，並對於接收到來自 Controller 的封包轉送到指定的連接埠
    
-2. What is “table-miss” in SDN?
-   
+2. What is “table-miss” in SDN?  
+   如果在某個Flow Table尋找符合規則的Flow Entry時，都找不到相對應的Flow Entry，這種情況就稱為Table Miss。  
+
 3. Why is "`(app_manager.RyuApp)`" adding after the declaration of class in `controller.py`?
+   因為Ryu 應用程式是一個繼承自 ryu.base.app_manager.RyuApp 的類別。 如果在一個 Python 模組中定義了兩個以上的 Ryu 應用程式類別， 則app_manager 會以名稱作為排序，並且取用第一個應用程式作為這一個模組中 的 Ryu 應用程式執行。  
    
 4. Explain the following code in `controller.py`.
     ```python
     @set_ev_cls(ofp_event.EventOFPPacketIn, CONFIG_DISPATCHER)
     ```
+    
+    
 
 5. What is the meaning of “datapath” in `controller.py`?
+   datapath的意義是要讓封包知道自己該走哪一條路徑。  
    
-6. Why need to set "`ip_proto=17`" in the flow entry?
+6. Why need to set "`ip_proto=17`" in the flow entry?  
+   要定義ip協定的種類。  
    
-7. Compare the differences between the iPerf results of `SimpleController.py` and `controller.py` in detail.
+7. Compare the differences between the iPerf results of `SimpleController.py` and `controller.py` in detail.  
+   兩者的差別在delay, packet loss, 和bandwidth的部分。  
+   SimpleController.py的delay比較長，bandwidth比較小且packet loss比較多。  
    
-8. Which forwarding rule is better? Why?
+8. Which forwarding rule is better? Why?  
+   controller的那個forwarding rule(h1->s1->s2->s3->h2->s3->s2->s1->h1)比較好，因為他的packet loss和delay都比較少。
 
 ---
 ## References
