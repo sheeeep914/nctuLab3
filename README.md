@@ -165,11 +165,9 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
    
 4. Explain the following code in `controller.py`.
     ```python
-    @set_ev_cls(ofp_event.EventOFPPacketIn, CONFIG_DISPATCHER)
+    @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)
     ```
-    
-    
-    
+   `@set_ev_cls` 是一個python辨識子 他會聆聽OPENFLOW的packet-in訊息，"MAIN_DISPATCHER" 是dispatcher參數，他會接收switch-features的訊息，送set-config的訊息。  
 
 5. What is the meaning of “datapath” in `controller.py`?  
    datapath的意義是要讓封包知道自己該走哪一條路徑。  
